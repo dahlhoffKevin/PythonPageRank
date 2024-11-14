@@ -14,7 +14,7 @@ class Page():
         return self.pagerank
 
 class Graph():
-    def __init__(self, pages: list[Page], dumpingFactor):
+    def __init__(self, pages: list[Page], dumpingFactor: float):
         self.pages = pages
         self.damp = dumpingFactor
 

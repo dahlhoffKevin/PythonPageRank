@@ -12,7 +12,10 @@ def test_a1():
     b.incomingLinks = [a]
 
     graph = Graph([a, b], d)
-    assert (graph.calculate_pagerank() == [
+    ranks = graph.calculate_pagerank()
+    for rank in ranks:
+        print(rank[1])
+    assert (ranks == [
         [a, 1],
         [b, 1]
     ])
@@ -34,7 +37,10 @@ def test_a2():
     c.incomingLinks = [a]
 
     graph = Graph([a, b, c], d)
-    assert (graph.calculate_pagerank() == [
+    ranks = graph.calculate_pagerank()
+    for rank in ranks:
+        print(rank[1])
+    assert (ranks == [
         [a, 1],
         [b, 1],
         [c, 1]
@@ -55,7 +61,10 @@ def test_a3():
     c.incomingLinks = [a, b]
 
     graph = Graph([a, b, c], d)
-    assert (graph.calculate_pagerank() == [
+    ranks = graph.calculate_pagerank()
+    for rank in ranks:
+        print(rank[1])
+    assert (ranks == [
         [a, 0.575],
         [b, 0.39437500000000003],
         [c, 0.561984375]
@@ -75,7 +84,10 @@ def test_a4():
     c.incomingLinks = [b]
 
     graph = Graph([a, b, c], d)
-    assert (graph.calculate_pagerank() == [
+    ranks = graph.calculate_pagerank()
+    for rank in ranks:
+        print(rank[1])
+    assert (ranks == [
         [a, 0.15000000000000002],
         [b, 0.2775],
         [c, 0.385875]
