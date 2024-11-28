@@ -16,10 +16,9 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-    - name: Test with pytest
+    - name: Running Unittests
       run: |
-        pip install pytest pytest-cov
-        pytest TestA1.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
-        pytest TestA2.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
-        pytest TestA3.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
-        pytest TestA4.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+        python3 TestA1.py
+        python3 TestA2.py
+        python3 TestA3.py
+        python3 TestA4.py
