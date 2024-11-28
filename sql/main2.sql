@@ -22,4 +22,5 @@ SELECT pl_title, COUNT(pl_title) eingehendeLinks
 FROM pagelinks pl, page p
 WHERE pl.pl_from = p.page_id
 GROUP BY pl.pl_title
-ORDER BY eingehendelinks DESC
+ORDER BY eingehendelinks DESC;
+

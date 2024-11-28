@@ -1,3 +1,6 @@
+GLOBAL_PAGE_ARRAY = []
+GLOBAL_GRAPH_ARRAY = []
+
 class Page():
     def __init__(self, name):
         self.name = name
@@ -7,11 +10,12 @@ class Page():
 
     def calculateNewPagerank(self, d) -> None:
         pr_sum = 0
-
-        for pin in self.incomingLinks:
-            pr_sum += pin.pagerank / len(pin.outgoingLinks)
-        self.pagerank = 1 - d + d * pr_sum
-        return self.pagerank
+        
+        for _ in range(0, 100):
+            for pin in self.incomingLinks:
+                pr_sum += pin.pagerank / len(pin.outgoingLinks)
+            self.pagerank = 1 - d + d * pr_sum
+            return self.pagerank
 
 class Graph():
     def __init__(self, pages: list[Page], dumpingFactor: float):
@@ -38,8 +42,8 @@ def main():
     c.incomingLinks = [a, b]
 
     graph = Graph([a, b, c], d)
-    pagesAndPagerank = graph.calculate_pagerank()
-    for page in pagesAndPagerank:
+    pageranks = graph.calculate_pagerank()
+    for page in pageranks:
         print(page[1])
 
 if __name__ == '__main__':
