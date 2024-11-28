@@ -3,7 +3,7 @@ from pagerank import Page, Graph
 import unittest
 
 class A4(unittest.TestCase):
-    def setup(self):
+    def setUp(self):
         self.a = Page('a')
         self.b = Page('b')
         self.c = Page('c')
@@ -18,12 +18,15 @@ class A4(unittest.TestCase):
         ranks = graph.calculate_pagerank()
         for rank in ranks:
             print(rank[1])
-        assert (ranks == [
+        
+        expected_ranks = [
             [self.a, 0.15000000000000002],
             [self.b, 0.2775],
             [self.c, 0.385875]
-        ])
+        ]
 
-print('Running test for testmethod a4')
-a4 = A4()
-a4.test_a4()
+        self.assertEqual(ranks, expected_ranks)
+
+if __name__ == '__main__':
+    print('Running test for testmethod a4')
+    unittest.main()
